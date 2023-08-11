@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Scan') {
       steps {
-        bat '"C:/Users/Matias/go/bin/trivy.exe" image --no-progress --exit-code 1 --severity HIGH,CRITICAL corfo/devsecops:latest'
+        bat '"C:/Users/Matías/go/bin/trivy.exe" image --no-progress --exit-code 1 --severity HIGH,CRITICAL corfo/devsecops:latest'
       }
     }
     stage('Approval') {
