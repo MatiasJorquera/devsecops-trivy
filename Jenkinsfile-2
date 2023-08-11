@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Scan') {
       steps {
-        bat 'trivy image --no-progress --exit-code 1 --severity HIGH,CRITICAL corfo/devsecops:latest'
+        //bat 'trivy image --no-progress --exit-code 1 --severity HIGH,CRITICAL corfo/devsecops:latest'
+          bat 'trivy image --no-progress --exit-code 1 --severity HIGH,CRITICAL repository https://github.com/MatiasJorquera/devsecops-trivy.git
       }
     }
     stage('Approval') {
