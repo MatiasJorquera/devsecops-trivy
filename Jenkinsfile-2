@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        bat '/usr/local/bin/docker build -t corfo/devsecops:latest .'
+        bat 'docker build -t corfo/devsecops:latest .'
       }
     }
     stage('Scan') {
       steps {
-        bat '/opt/homebrew/bin/trivy image --no-progress --exit-code 1 --severity HIGH,CRITICAL corfo/devsecops:latest'
+        bat '"C:/Users/Matías/go/bin/trivy.exe" image --no-progress --exit-code 1 --severity HIGH,CRITICAL corfo/devsecops:latest'
       }
     }
     stage('Approval') {
@@ -18,7 +18,7 @@ pipeline {
     }
     stage('terraform') {
       steps {
-                bat '/usr/local/bin/docker run -d -p 5050:80 corfo/devsecops:latest'
+                bat 'docker run -d -p 5050:80 corfo/devsecops:latest'
       }
     }
   }
